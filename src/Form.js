@@ -38,7 +38,7 @@ export default function Form(props) {
                         value={values.name}
                         placeholder="enter your name here"
                         maxLength="40"
-                        minLength="2"
+                        minLength="2"//MVP called for a validation of 2 chars min, but this was much cleaner than writing a scheme to validate one thing.
                         onChange={onChange}
                     />
                 </label>
