@@ -4,6 +4,11 @@ import {useHistory} from 'react-router-dom'
 export default function Form(props) {
     const { values, update, submit } = props
 
+    let history = useHistory()
+    function navigateToPizza() {
+        history.push('/pizza')
+    }
+
     const onChange = evt => {
         const {name, value, type, checked } = evt. target
         const valueToUse = type === 'checkbox' ? checked : value
@@ -13,9 +18,10 @@ export default function Form(props) {
     const onSubmit = evt => {
         evt.preventDefault()
         submit()
+        navigateToPizza()
     }
 
-    let history = useHistory()
+    
 
     return (
         <div className='form container'>
@@ -29,6 +35,7 @@ export default function Form(props) {
                         value={values.name}
                         placeholder="enter your name here"
                         maxLength="40"
+                        minLength="2"
                         onChange={onChange}
                     />
                 </label>
@@ -94,7 +101,7 @@ export default function Form(props) {
                     />
                 </label>
                 <div className="order button">
-                <button disabled={!values.name || !values.pizzaSize} onClick={() => history.push('/pizza')}>Add to Order</button>
+                <button disabled={!values.name || !values.pizzaSize}>Add to Order</button>
             </div>
             </form>
         </div>

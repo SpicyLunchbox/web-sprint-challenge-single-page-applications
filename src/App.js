@@ -4,6 +4,9 @@ import HomePage from './HomePage'
 import Form from './Form'
 import Pizza from './Pizza'
 
+
+
+
 const initialFormValues = {
   name: '',
   pizzaSize: '',
@@ -27,7 +30,7 @@ const initialPizza = {
 const App = () => {
 
   const [formValues, setFormValues] = useState(initialFormValues)
-  const [newPizza, setNewPizza] = useState({initialPizza})
+  const [newPizza, setNewPizza] = useState(initialPizza)
 
   const updateForm = (inputName, inputValue) => {
     setFormValues({
@@ -39,7 +42,7 @@ const App = () => {
   
 
   const submitForm = () => {
-    const newPizza = {
+    const pizza = {
       name: formValues.name.trim(),
       pizzaSize: formValues.pizzaSize,
       pepperoni: formValues.pepperoni,
@@ -48,10 +51,7 @@ const App = () => {
       onions: formValues.onions,
       special: formValues.special.trim(),
     }
-    // if (!newPizza.name || !newPizza.pizzaSize) {
-    //   return;
-    // }
-    setNewPizza(newPizza)
+    setNewPizza(pizza)
   }
 
   return (
