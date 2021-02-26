@@ -52,6 +52,8 @@ const App = () => {
       special: formValues.special.trim(),
     }
     setNewPizza(pizza)
+    
+    
   }
 
   return (
