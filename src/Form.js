@@ -4,11 +4,14 @@ import {useHistory} from 'react-router-dom'
 export default function Form(props) {
     const { values, update, submit } = props
 
+    //this code allows for you to navigate to the pizza checkout page upon submission
     let history = useHistory()
     function navigateToPizza() {
         history.push('/pizza')
     }
 
+    //whenever an event occurs on page, that event's target is checked, and if the target's type is checkbox, the checked value is used
+    //in plain english, this allows the checkbox values to update on formValues
     const onChange = evt => {
         const {name, value, type, checked } = evt. target
         const valueToUse = type === 'checkbox' ? checked : value
@@ -17,12 +20,12 @@ export default function Form(props) {
 
     const onSubmit = evt => {
         evt.preventDefault()
-        submit()
-        navigateToPizza()
+        submit()//updates newPizza state from formValues
+        navigateToPizza()//navigates you to the checkout page
     }
 
     
-
+    //markup for the form
     return (
         <div className='form container'>
             <h1>Build your pizza</h1>

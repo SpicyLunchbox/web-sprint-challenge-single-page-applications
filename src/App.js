@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {Route} from 'react-router-dom'
 import HomePage from './HomePage'
 import Form from './Form'
@@ -29,10 +29,10 @@ const initialPizza = {
 
 const App = () => {
 
-  const [formValues, setFormValues] = useState(initialFormValues)
-  const [newPizza, setNewPizza] = useState(initialPizza)
+  const [formValues, setFormValues] = useState(initialFormValues)//state for monitoring form inputs
+  const [newPizza, setNewPizza] = useState(initialPizza)//state for making new order upon submission of form
 
-  const updateForm = (inputName, inputValue) => {
+  const updateForm = (inputName, inputValue) => {//updates any key:value pair inside formValues as events occur on the page
     setFormValues({
       ...formValues,
       [inputName]: inputValue
@@ -41,7 +41,7 @@ const App = () => {
 
   
 
-  const submitForm = () => {
+  const submitForm = () => {//upon form submission, a new object is generated, then stored in newPizza
     const pizza = {
       name: formValues.name.trim(),
       pizzaSize: formValues.pizzaSize,
